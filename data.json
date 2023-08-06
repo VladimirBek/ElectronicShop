@@ -1,0 +1,158 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Компьютер iRU Home 310H5SE",
+      "description": "Intel Core i3 10105, 3.7 ГГц (4.4 ГГц, в режиме Turbo)",
+      "image": "1.jpg",
+      "category": 1,
+      "unit_price": 29390,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Компьютер iRU Game 310H5GMA",
+      "description": "Intel Core i5 11400F, 2.6 ГГц (4.4 ГГц, в режиме Turbo)",
+      "image": "2.png",
+      "category": 1,
+      "unit_price": 84990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Компьютер iRU Home 510B5SE",
+      "description": "Intel Core i5 11400, 2.6 ГГц (4.4 ГГц, в режиме Turbo)",
+      "image": "img.png",
+      "category": 1,
+      "unit_price": 52990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Смартфон Huawei P60 Pro 8/256Gb",
+      "description": "Qualcomm Snapdragon 8+ Gen 1",
+      "image": "img_1.png",
+      "category": 4,
+      "unit_price": 71990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "Смартфон TECNO Pova Neo 3 4/128Gb",
+      "description": "MediaTek Helio G85",
+      "image": "img_2.png",
+      "category": 4,
+      "unit_price": 11990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Смартфон Huawei nova Y91 8/128Gb, STG-LX1",
+      "description": "Qualcomm Snapdragon 680",
+      "image": "img_3.png",
+      "category": 4,
+      "unit_price": 19990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "Сотовый телефон Philips Xenium E2101",
+      "description": "Дисплей: 1.77, TFT; 160 х 128",
+      "image": "img_4.png",
+      "category": 3,
+      "unit_price": 1490,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Сотовый телефон Digma Linx A241",
+      "description": "Дисплей: 2.44 320 х 240",
+      "image": "img_5.png",
+      "category": 3,
+      "unit_price": 1190,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "Сотовый телефон Digma Linx A106",
+      "description": "Дисплей: 1.44; 98 х 68",
+      "image": "img_6.png",
+      "category": 3,
+      "unit_price": 799,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "name": "Монитор Samsung Odyssey G5 C34G55TWWI 34",
+      "description": "Экран: 34, 3440x1440, 21:9, VA, 165 Гц, 250 кд/м2, 1 мс, AMD FreeSync, изогнутый",
+      "image": "img_7.png",
+      "category": 2,
+      "unit_price": 34760,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "name": "Монитор Huawei MateView GT ZQE-CBA 34",
+      "description": "34, 3440x1440, 21:9, VA, 165 Гц, 350 кд/м2, 4 мс, изогнутый",
+      "image": "img_8.png",
+      "category": 2,
+      "unit_price": 39990,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 12,
+    "fields": {
+      "name": "Монитор LG UltraFine 27UL500-W 27",
+      "description": "Экран: 27, 3840x2160, 16:9, IPS, 60 Гц, 300 кд/м2, GTG 5 мс, AMD FreeSync",
+      "image": "img_9.png",
+      "category": 2,
+      "unit_price": 25360,
+      "produce_day": "2023-08-03",
+      "last_change": "2023-08-03"
+    }
+  }
+]

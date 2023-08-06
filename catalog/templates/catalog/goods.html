@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
+{% load my_tags %}
 {% block content %}
- <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">{{ object.name }}</h1>
-    </div>
+<div class="px-4 py-5 my-5 text-center">
+    <img class="img"
+         src="{% mymedia object.image %}"
+         alt="{{ object.name }}"
+         width="200"
+         height="250"
+    >
+    <h1 class="display-5 fw-bold text-body-emphasis">{{ object.name }}</h1>
+    <div class="col-lg-6 mx-auto">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ object.description }}</li>
+            <li class="list-group-item">Цена: {{ object.unit_price }}</li>
+            <li class="list-group-item">Изготовлен: {{ object.produce_day }}</li>
+            <li class="list-group-item">Последнее обновление: {{ object.last_change }}</li>
+        </ul>
 
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="#" type="button" class="btn btn-primary btn-lg px-4 gap-3">Купить</a>
+            <a href="/" type="button" class="btn btn-outline-secondary btn-lg px-4">Вернуться в каталог</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
