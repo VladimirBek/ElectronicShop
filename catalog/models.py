@@ -43,3 +43,16 @@ class Contacts(models.Model):
     class Meta:
         verbose_name = 'контакт'
         verbose_name_plural = 'контакты'
+
+
+class UserData(models.Model):
+    name = models.CharField(max_length=100, verbose_name='имя')
+    phone_number = models.CharField(max_length=50, verbose_name='телефон')
+    message = models.TextField(verbose_name='сообщение', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.name}: {self.message}'
+
+    class Meta:
+        verbose_name = 'Сообщение'
+        verbose_name_plural = 'Сообщения'

@@ -1,0 +1,16 @@
+<div class="col">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-text">{{ object.name }}</h4>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{ object.unit_price }} рублей</h1>
+                        <p class="card-text">{{ object.description|slice:":100" }}</p>
+                        <a href="#" class="btn btn-primary">Перейти к товару</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

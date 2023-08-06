@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from catalog.models import Product, Category, Contacts
+from catalog.models import Product, Category, Contacts, UserData
 
 
 @admin.register(Category)
@@ -21,3 +21,8 @@ class ContactsAdmin(admin.ModelAdmin):
     list_display = ('id', 'address', 'ind_number', 'country',)
     list_filter = ('country',)
     search_fields = ('ind_number',)
+
+
+@admin.register(UserData)
+class UserDataAdmin(admin.ModelAdmin):
+    list_display = ('name', 'phone_number', 'message',)

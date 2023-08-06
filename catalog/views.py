@@ -1,16 +1,18 @@
 from django.shortcuts import render
-from django.views.generic.detail import DetailView
 
-from catalog.models import Product, Contacts
+from catalog.models import Product, Contacts, UserData
 
 
 def index(request):
-    products = Product.objects.all().values('name').order_by('-pk')
-    for product in products[:5]:
-        print(f'{product["name"]}')
-    return render(request, 'index.html')
+    context = {'objects_list': Product.objects.all()}
+    return render(request, 'index.html', context)
 
 
 def contacts(request):
     data = Contacts.objects.get(id=1)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        massage = request.POST.get('message')
+        UserData.objects.create(name=name, phone_number=phone, message=massage)
     return render(request, 'contacts.html', context={'data': data})
