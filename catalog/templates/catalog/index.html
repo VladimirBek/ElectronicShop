@@ -12,12 +12,31 @@
 
 {% block content %}
 {% include 'includes/inc_main_menu.html' %}
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Каталог</h1>
-    </div>
-    <div class="container">
-        {% for object in objects_list %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Каталог</h1>
+</div>
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in page_obj %}
         {% include 'includes/inc_good_card.html' %}
         {% endfor %}
     </div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; в начало</a><br>
+            <a href="?page={{ page_obj.previous_page_number }}">назад</a><br>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.<br>
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">вперед</a><br>
+            <a href="?page={{ page_obj.paginator.num_pages }}">в конец &raquo;</a><br>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
