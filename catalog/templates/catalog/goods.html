@@ -1,6 +1,18 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Товар</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 {% extends 'base.html' %}
+
 {% load my_tags %}
+
 {% block content %}
+{% include 'includes/inc_main_menu.html' %}
 <div class="px-4 py-5 my-5 text-center">
     <img class="img"
          src="{% mymedia object.image %}"
