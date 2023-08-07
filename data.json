@@ -1,5 +1,37 @@
 [
   {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Компьютеры",
+      "description": "Вычислительные машины"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Монитор",
+      "description": "Экран для компьютера"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Телефон",
+      "description": "Средство связи"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Смартфон",
+      "description": "Средство связи с вычислительной мощностью и экраном"
+    }
+  },
+  {
     "model": "catalog.product",
     "pk": 1,
     "fields": {
@@ -153,6 +185,115 @@
       "unit_price": 25360,
       "produce_day": "2023-08-03",
       "last_change": "2023-08-03"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 13,
+    "fields": {
+      "name": "ПК DEXP Aquilon O274",
+      "description": "4 x 1.1 ГГц, 4 ГБ DDR4, SSD 120 ГБ, без ОС",
+      "image": "",
+      "category": 1,
+      "unit_price": 10399,
+      "produce_day": "2023-03-16",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 14,
+    "fields": {
+      "name": "ПК DEXP Aquilon O274",
+      "description": "4 x 1.1 ГГц, 4 ГБ DDR4, SSD 120 ГБ, без ОС",
+      "image": "",
+      "category": 1,
+      "unit_price": 10399,
+      "produce_day": "2023-03-16",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 15,
+    "fields": {
+      "name": "ПК DEXP Atlas H303",
+      "description": "",
+      "image": "",
+      "category": 1,
+      "unit_price": 20399,
+      "produce_day": "2018-06-06",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 16,
+    "fields": {
+      "name": "Монитор DEXP DF22N1",
+      "description": "1920x1080 (FullHD)@75 Гц, VA, LED, 3000:1, 250 Кд/м², 170°/170°, HDMI 1.4, VGA (D-Sub), AMD FreeSync",
+      "image": "",
+      "category": 2,
+      "unit_price": 7399,
+      "produce_day": "2023-01-08",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 17,
+    "fields": {
+      "name": "23\" Монитор Rombica SkyView M23 ",
+      "description": "черный [1920x1080 (FullHD)@60 Гц, TN, LED, 14 мс, 3000:1, 250 Кд/м², 170°/170°, HDMI, VGA (D-Sub), AMD FreeSync]",
+      "image": "",
+      "category": 2,
+      "unit_price": 123141,
+      "produce_day": "2013-02-28",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+      "name": "19.5\" Монитор AOC E2070SWN ",
+      "description": "черный [1600x900@60 Гц, TN, LED, 5 мс, 600:1, 200 Кд/м², 90°/60°, VGA (D-Sub)]",
+      "image": "",
+      "category": 4,
+      "unit_price": 234234,
+      "produce_day": "2012-03-31",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 19,
+    "fields": {
+      "name": "1920x1080 ",
+      "description": "(FullHD)@60 Гц, TN, LED, 5 мс, 1000:1, 250 Кд/м², 170°/160°, HDMI 1.4, VGA (D-Sub)",
+      "image": "",
+      "category": 2,
+      "unit_price": 32423,
+      "produce_day": "2013-02-23",
+      "last_change": "2023-08-07"
+    }
+  },
+  {
+    "model": "catalog.contacts",
+    "pk": 1,
+    "fields": {
+      "country": "Россия",
+      "ind_number": "9709022748",
+      "address": "ул. Александра Солженицына, 23А строение 1, Москва, 109004"
+    }
+  },
+  {
+    "model": "catalog.userdata",
+    "pk": 1,
+    "fields": {
+      "name": "Vladimir",
+      "phone_number": "+7(916)991-77-97",
+      "message": "Привет"
     }
   }
 ]
