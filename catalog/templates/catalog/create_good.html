@@ -22,10 +22,9 @@
     <div class="form-group pt-md-3 pb-md-3 mx-auto">
         <label for="category">Категория товара</label>
         <select class="form-control" id="category" name="category" required>
-            <option>Компьютеры</option>
-            <option>Мониторы</option>
-            <option>Телефоны</option>
-            <option>Смартфоны</option>
+            {% for object in objects_list %}
+            <option>{{object}}</option>
+            {% endfor %}
         </select>
     </div>
     <div class="form-group pt-md-3 pb-md-3 mx-auto">
