@@ -11,41 +11,25 @@
 {% block content %}
 {% include 'includes/inc_main_menu.html' %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Добавить товар</h1>
+    <h1 class="display-4">
+        {% if object %}
+        Редактивровать товар
+        {% else %}
+        Добавить товар
+        {% endif %}
+    </h1>
 </div>
-<form method="post" action="" class="form-floating">
+<form method="post" enctype="multipart/form-data" class="form-floating">
     {% csrf_token %}
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="name">Название товара</label>
-        <input type="text" name="name" id="name" class="form-control" required>
-    </div>
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="category">Категория товара</label>
-        <select class="form-control" id="category" name="category" required>
-            <option>Компьютеры</option>
-            <option>Мониторы</option>
-            <option>Телефоны</option>
-            <option>Смартфоны</option>
-        </select>
-    </div>
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="unit_price">Цена товара</label>
-        <input type="number" name="unit_price" id="unit_price" class="form-control" required>
-    </div>
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="produce_day">Дата изготовления</label>
-        <input type="date" class="form-control" name="produce_day" id="produce_day" required>
-    </div>
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="image">Изображение товара</label>
-        <input type="file" class="form-control-file" name="image" id="image">
-    </div>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">
+        {% if object %}
+        Сохранить
+        {% else %}
+        Добавить
+        {% endif %}
 
-    <div class="form-group pt-md-3 pb-md-3 mx-auto">
-        <label for="description">Описание товара</label>
-        <textarea class="form-control" rows="3" name="description" id="description"></textarea>
-    </div>
-    <input type="submit" value="Отправить"/>
+    </button>
 </form>
 
 {% endblock %}

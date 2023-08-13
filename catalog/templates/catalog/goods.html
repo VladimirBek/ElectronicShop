@@ -32,6 +32,9 @@
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a href="#" type="button" class="btn btn-primary btn-lg px-4 gap-3">Купить</a>
             <a href="/" type="button" class="btn btn-outline-secondary btn-lg px-4">Вернуться в каталог</a>
+            <a href="{% url 'catalog:update_good' object.pk %}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Редактировать</a>
+            <a href="{% url 'catalog:delete_good' object.pk %}" type="button" class="btn btn-danger btn-lg px-4 gap-3">Удалить</a>
+
         </div>
     </div>
 </div>
