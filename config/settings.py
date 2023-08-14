@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'catalog',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'catalog/templates/catalog']
+        'DIRS': [BASE_DIR / 'catalog/templates/catalog', BASE_DIR / 'blog/templates/blog']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
