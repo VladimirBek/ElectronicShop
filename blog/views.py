@@ -12,9 +12,20 @@ class IndexList(ListView):
     model = Blog
     paginate_by = 6
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.filter(published=True)
+        return qs
+
 
 class BlogDetail(DetailView):
     model = Blog
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        self.object.view_count += 1
+        self.object.save()
+        return self.object
 
 
 class BlogCreate(CreateView):
