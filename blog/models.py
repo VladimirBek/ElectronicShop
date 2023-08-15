@@ -13,6 +13,7 @@ class Blog(models.Model):
     create_date = models.DateField(verbose_name='дата создания', default=now)
     published = models.BooleanField(verbose_name='признак публикации', default=False)
     view_count = models.IntegerField(verbose_name='колличество просмотров', default=0)
+    email_address = models.CharField(max_length=100, verbose_name='электронная почта', default='не указано')
 
     def __str__(self):
         return f'{self.title}, просмотры: {self.view_count}'
