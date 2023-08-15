@@ -1,11 +1,12 @@
-from django.shortcuts import render
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.core.mail import send_mail
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy, reverse
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from pytils.translit import slugify
 
 from blog.models import Blog
+from config import settings
 
 
 class IndexList(ListView):
@@ -25,12 +26,19 @@ class BlogDetail(DetailView):
         self.object = super().get_object(queryset)
         self.object.view_count += 1
         self.object.save()
+        if self.object.view_count == 100:
+            obj_title = self.object.title
+            send_mail(
+                f'Congrats, {obj_title} owner, we have some news for you!',
+                f"Your article {obj_title} got first 100 views!",
+                settings.EMAIL_HOST_USER,
+                recipient_list=[self.object.email_address])
         return self.object
 
 
 class BlogCreate(CreateView):
     model = Blog
-    fields = ('title', 'body', 'preview', 'published',)
+    fields = ('title', 'body', 'preview', 'published', 'email_address')
 
     def get_success_url(self):
         return reverse_lazy('blog:articles', args=[self.object.slug])
@@ -45,7 +53,7 @@ class BlogCreate(CreateView):
 
 class BlogUpdate(UpdateView):
     model = Blog
-    fields = ('title', 'body', 'preview', 'published',)
+    fields = ('title', 'body', 'preview', 'published', 'email_address')
 
     def get_success_url(self):
         return reverse_lazy('blog:articles', args=[self.object.slug])
