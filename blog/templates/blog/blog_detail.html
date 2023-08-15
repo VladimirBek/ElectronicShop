@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Запись в блоге</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% load my_tags %}
+
+{% block content %}
+{% include 'includes/inc_main_menu.html' %}
+<div class="px-4 py-5 my-5 text-center">
+    <img class="img"
+         src="{% mymedia object.preview %}"
+         alt="{{ object.title }}"
+         width="200"
+         height="250"
+    >
+    <h1 class="display-5 fw-bold text-body-emphasis">{{ object.title }}</h1>
+    <div class="col-lg-6 mx-auto">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ object.body }}</li>
+            <li class="list-group-item">Просмотры: {{ object.view_count }}</li>
+            <li class="list-group-item">Дата создания: {{ object.create_date }}</li>
+            <li class="list-group-item">
+                {% if object.published %}
+                Статус: Опубликовано
+                 {% else %}
+                Статус: Не опубликовано
+                {% endif %}
+            </li>
+        </ul>
+
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/blog" type="button" class="btn btn-outline-secondary btn-lg px-4">Вернуться к записям</a>
+            <a href="{% url 'blog:update_article' object.slug %}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Редактировать</a>
+            <a href="{% url 'blog:delete_article' object.slug %}" type="button" class="btn btn-danger btn-lg px-4 gap-3">Удалить</a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
