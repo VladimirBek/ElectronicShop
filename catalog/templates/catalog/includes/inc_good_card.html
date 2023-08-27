@@ -2,13 +2,20 @@
     <div class="card shadow-sm">
         <div class="card-body">
             <h4 class="card-text">{{ object.name }}</h4>
-                <div class="btn-group">
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{ object.unit_price }} рублей</h1>
-                        <p class="card-text">{{ object.description|slice:":100" }}</p>
-                        <a href="{% url 'catalog:goods' object.pk %}" class="btn btn-primary">Перейти к товару</a>
+            <div class="btn-group">
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{ object.unit_price }} рублей</h1>
+                    <p class="card-text">{{ object.description|slice:":100" }}</p>
+                    {% if object.version %}
+                    <div style="padding: 1px 10px; display: inline-block;  border: 3px solid black; margin-left: 20px; margin-bottom: 10px">
+                        <h3 style="font-size: 16px">Активная версия</h3>
+                        <p style="font-size: 12px">Название: {{ object.version.name }}</p>
+                        <p style="font-size: 12px">Номер: {{ object.version.number }}</p>
                     </div>
+                    {% endif %}
+                    <a href="{% url 'catalog:goods' object.pk %}" class="btn btn-primary">Перейти к товару</a>
                 </div>
             </div>
         </div>
     </div>
+</div>

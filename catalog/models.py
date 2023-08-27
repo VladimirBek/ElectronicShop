@@ -56,5 +56,23 @@ class UserData(models.Model):
         return f'{self.name}: {self.message}'
 
     class Meta:
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщения'
+        verbose_name = 'сообщение'
+        verbose_name_plural = 'сообщения'
+
+
+class Version(models.Model):
+    class Status(models.TextChoices):
+        ACTIVE = 'активна'
+        NOT_ACTIVE = 'не активна'
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='продукт')
+    number = models.CharField(max_length=50, verbose_name='номер версии')
+    name = models.CharField(max_length=100, verbose_name='название версии')
+    status = models.CharField(max_length=15, choices=Status.choices, verbose_name='признак версии')
+
+    def __str__(self):
+        return f'версия {self.product.name} номер {self.number}'
+
+    class Meta:
+        verbose_name = 'версия'
+        verbose_name_plural = 'версии'
