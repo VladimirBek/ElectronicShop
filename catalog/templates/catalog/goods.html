@@ -27,14 +27,16 @@
             <li class="list-group-item">Цена: {{ object.unit_price }}</li>
             <li class="list-group-item">Изготовлен: {{ object.produce_day }}</li>
             <li class="list-group-item">Последнее обновление: {{ object.last_change }}</li>
+            <li class="list-group-item">Владелец: {{ object.owner }}</li>
         </ul>
 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a href="#" type="button" class="btn btn-primary btn-lg px-4 gap-3">Купить</a>
             <a href="/" type="button" class="btn btn-outline-secondary btn-lg px-4">Вернуться в каталог</a>
+            {% if user.is_authenticated%}
             <a href="{% url 'catalog:update_good' object.pk %}" type="button" class="btn btn-primary btn-lg px-4 gap-3">Редактировать</a>
             <a href="{% url 'catalog:delete_good' object.pk %}" type="button" class="btn btn-danger btn-lg px-4 gap-3">Удалить</a>
-
+            {% endif %}
         </div>
     </div>
 </div>

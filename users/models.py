@@ -46,7 +46,7 @@ class User(AbstractUser):
     country = models.CharField(max_length=50, verbose_name='cтрана', **NULLABLE)
 
     def __str__(self):
-        return self.get_full_name()
+        return self.email
 
     class Meta:
         verbose_name = 'пользователь'

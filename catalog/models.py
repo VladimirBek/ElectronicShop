@@ -1,6 +1,7 @@
+from django.db import models
 from django.utils.timezone import now
 
-from django.db import models
+from config import settings
 
 NULLABLE = {'null': True, 'blank': True}
 
@@ -25,6 +26,9 @@ class Product(models.Model):
     unit_price = models.IntegerField(verbose_name='цена за покупку')
     produce_day = models.DateField(verbose_name='дата создания')
     last_change = models.DateField(verbose_name='дата последнего изменения', default=now)
+
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='собственник',
+                              **NULLABLE)
 
     def __str__(self):
         return f'{self.name} ({self.category})'

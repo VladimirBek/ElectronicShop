@@ -1,3 +1,4 @@
+import django.forms
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, DeleteView, CreateView
 from django.views.generic.detail import DetailView
@@ -48,6 +49,13 @@ class GoodsCreate(CreateView):
     def get_success_url(self):
         return reverse_lazy('catalog:goods', args=[self.object.pk])
 
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.owner = self.request.user
+        self.object.save()
+
+        return super().form_valid(form)
+
 
 class GoodsUpdate(UpdateView):
     model = Product
@@ -61,7 +69,6 @@ class GoodsUpdate(UpdateView):
         else:
             formset = VersionFormset(instance=self.object)
         context_data['formset'] = formset
-
         return context_data
 
     def form_valid(self, form):

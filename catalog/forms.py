@@ -30,7 +30,7 @@ class ProductForm(MixinFormStile, forms.ModelForm):
 
     class Meta:
         model = Product
-        exclude = ('last_change',)
+        exclude = ('last_change', 'owner',)
 
 
 class VersionForm(MixinFormStile, forms.ModelForm):
