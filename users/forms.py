@@ -1,3 +1,4 @@
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.forms.models import ModelForm
 from django.forms import ValidationError
@@ -17,7 +18,7 @@ class CustomCreationForm(UserCreationForm):
         fields = ('email', 'password1', 'password2',)
 
 
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(ModelForm):
     class Meta:
         model = User
         fields = ('email', 'avatar', 'phone_number', 'country')

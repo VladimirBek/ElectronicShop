@@ -19,13 +19,14 @@ class ProductForm(MixinFormStile, forms.ModelForm):
         cleaned_data = super().clean()
         name = self.cleaned_data.get('name')
         description = self.cleaned_data.get('description')
-        for word in self.forbidden_words:
-            if word in name.lower():
-                self.add_error('name', forms.ValidationError(
-                    'Недопустимое значение имени товара (включены запрещённые слова)', code='name_error'))
-            if word in description.lower():
-                self.add_error('description', forms.ValidationError(
-                    'Недопустимое значение описания товара (включены запрещённые слова)', code='description_error'))
+        if name is not None and description is not None:
+            for word in self.forbidden_words:
+                if word in name.lower():
+                    self.add_error('name', forms.ValidationError(
+                        'Недопустимое значение имени товара (включены запрещённые слова)', code='name_error'))
+                if word in description.lower():
+                    self.add_error('description', forms.ValidationError(
+                        'Недопустимое значение описания товара (включены запрещённые слова)', code='description_error'))
         return cleaned_data
 
     class Meta:

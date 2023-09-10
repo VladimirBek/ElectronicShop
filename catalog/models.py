@@ -19,6 +19,10 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    class Published(models.TextChoices):
+        PUBLISHED = 'опубликовано'
+        NOT_PUBLISHED = 'не опубликовано'
+
     name = models.CharField(max_length=100, verbose_name='наименование')
     description = models.TextField(verbose_name='описание', **NULLABLE)
     image = models.ImageField(verbose_name='изображение (превью)', **NULLABLE)
@@ -26,6 +30,8 @@ class Product(models.Model):
     unit_price = models.IntegerField(verbose_name='цена за покупку')
     produce_day = models.DateField(verbose_name='дата создания')
     last_change = models.DateField(verbose_name='дата последнего изменения', default=now)
+    published = models.CharField(verbose_name='статус публикации', choices=Published.choices,
+                                 default=Published.NOT_PUBLISHED)
 
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='собственник',
                               **NULLABLE)

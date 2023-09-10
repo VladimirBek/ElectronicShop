@@ -28,8 +28,23 @@
                     <h4>Продукт</h4>
                     <div class="card body">
                         {% csrf_token %}
-                        {{ form.as_p }}
-
+                        {% if view.is_moderator %}
+                        <p>Описание:</p>
+                        {{ form.description }}
+                        <p>Категория:</p>
+                        {{ form.category }}
+                        <p>Статус публикации:</p>
+                        {{ form.published }}
+                        {% else %}
+                        {{ form }}
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary">
+                            {% if object %}
+                            Сохранить
+                            {% else %}
+                            Добавить
+                            {% endif %}
+                        </button>
 
                     </div>
                 </div>
@@ -52,13 +67,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">
-            {% if object %}
-            Сохранить
-            {% else %}
-            Добавить
-            {% endif %}
-        </button>
+
     </div>
 
 </form>

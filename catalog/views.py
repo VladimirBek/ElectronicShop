@@ -1,10 +1,13 @@
-import django.forms
+from django.urls import reverse_lazy, reverse
+from django.contrib.auth.views import redirect_to_login
+from django.core.exceptions import PermissionDenied
+from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, DeleteView, CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.forms import inlineformset_factory
-
+from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin, LoginRequiredMixin
+from django.urls.exceptions import Http404
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Contacts, UserData, Version
 
@@ -57,7 +60,7 @@ class GoodsCreate(CreateView):
         return super().form_valid(form)
 
 
-class GoodsUpdate(UpdateView):
+class GoodsUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
     form_class = ProductForm
 
@@ -87,7 +90,16 @@ class GoodsUpdate(UpdateView):
     def get_success_url(self):
         return reverse('catalog:goods', args=[self.object.pk])
 
+    def is_moderator(self):
+        return self.request.user.groups.filter(name='moderators').exists()
 
-class GoodsDelete(DeleteView):
+    def test_func(self):
+        product = self.get_object()
+        user = self.request.user
+        return user == product.owner or (self.is_moderator() and user.is_authenticated) or user.is_superuser
+
+
+class GoodsDelete(PermissionRequiredMixin, DeleteView):
     model = Product
+    permission_required = 'catalog.delete_product'
     success_url = reverse_lazy('catalog:index')
