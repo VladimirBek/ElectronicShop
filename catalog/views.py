@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMi
 from django.urls.exceptions import Http404
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Contacts, UserData, Version
+from catalog.servises import get_category_set
 
 
 class IndexList(ListView):
@@ -28,7 +29,7 @@ class IndexList(ListView):
                     'name': version[0].name,
                     'number': version[0].number,
                 }
-
+        context['categories'] = get_category_set()
         return context
 
 

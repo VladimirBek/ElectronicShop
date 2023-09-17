@@ -15,6 +15,14 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Каталог</h1>
 </div>
+<div class="col-3 col-md">
+    <h5>Категории</h5>
+    <ul class="list-unstyled text-small">
+        {% for category in categories %}
+        <li><a class="text-muted" href="">{{ category }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for object in page_obj %}
